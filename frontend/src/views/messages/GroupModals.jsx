@@ -12,7 +12,8 @@ const ModalOverlay = ({ children, onClose }) => (
     display:"flex", alignItems:"center", justifyContent:"center"
   }} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
     <div style={{
-      background:"var(--clr-bg)", width:400, maxWidth:"90%", borderRadius:12,
+      background:"var(--clr-card)", backdropFilter:"blur(24px)", WebkitBackdropFilter:"blur(24px)",
+      border:"1px solid var(--clr-card-border)", width:400, maxWidth:"90%", borderRadius:12,
       display:"flex", flexDirection:"column", overflow:"hidden",
       boxShadow:"0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)"
     }}>
@@ -102,7 +103,7 @@ export function CreateGroupModal({ onClose, onSuccess, currentUser }) {
           {searchResults.length > 0 && (
             <div style={{ marginTop:8, border:"1px solid var(--clr-border)", borderRadius:6, overflow:"hidden" }}>
               {searchResults.map(u => (
-                <div key={u._id} onClick={() => { setSelectedUsers(p => [...p, u]); setSearchQuery(""); }} style={{ padding:"8px 12px", cursor:"pointer", background:"var(--clr-bg)", borderBottom:"1px solid var(--clr-border)", fontSize:13, color:"var(--clr-text)", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                <div key={u._id} onClick={() => { setSelectedUsers(p => [...p, u]); setSearchQuery(""); }} style={{ padding:"8px 12px", cursor:"pointer", background:"var(--clr-bg3)", borderBottom:"1px solid var(--clr-border)", fontSize:13, color:"var(--clr-text)", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                   <div>{u.name} <span style={{fontSize:11, color:"var(--clr-text3)", marginLeft:6}}>{u.role}</span></div>
                   <span style={{color:"var(--clr-accent)", fontSize:18}}>+</span>
                 </div>
@@ -253,7 +254,7 @@ export function ManageGroupModal({ chat, onClose, onUpdate, currentUser }) {
               style={{ width:"100%", padding:"10px 14px", borderRadius:6, border:"1px solid var(--clr-border)", background:"var(--clr-bg3)", color:"var(--clr-text)", outline:"none", marginBottom:12 }}
             />
             {searchResults.map(u => (
-              <div key={u._id} style={{ padding:"10px 12px", background:"var(--clr-bg)", border:"1px solid var(--clr-border)", borderRadius:6, marginBottom:8, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+              <div key={u._id} style={{ padding:"10px 12px", background:"var(--clr-bg3)", border:"1px solid var(--clr-border)", borderRadius:6, marginBottom:8, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
                 <div>
                   <div style={{ fontSize:13, fontWeight:600, color:"var(--clr-text)" }}>{u.name}</div>
                   <div style={{ fontSize:11, color:"var(--clr-text3)" }}>{u.email}</div>
